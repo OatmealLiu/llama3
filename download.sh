@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
+#SBATCH -p gpu
+#SBATCH --gres gpu:0
+#SBATCH --mem=64000
+#SBATCH --time=24:00:00
+
+export PATH="/home/mingxuan.liu/software/anaconda3/bin:$PATH"
+
+eval "$(conda shell.bash hook)"
+bash
+
+conda activate dccislang
 
 set -e
 
