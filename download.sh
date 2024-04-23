@@ -1,17 +1,5 @@
 #!/usr/bin/env bash
 
-#SBATCH -p gpu
-#SBATCH --gres gpu:0
-#SBATCH --mem=64000
-#SBATCH --time=24:00:00
-
-export PATH="/home/mingxuan.liu/software/anaconda3/bin:$PATH"
-
-eval "$(conda shell.bash hook)"
-bash
-
-conda activate dccislang
-
 set -e
 
 read -p "Enter the URL from email: " PRESIGNED_URL
@@ -21,7 +9,7 @@ TARGET_FOLDER="."             # where all files should end up
 mkdir -p ${TARGET_FOLDER}
 
 if [[ $MODEL_SIZE == "" ]]; then
-    MODEL_SIZE="8B,8B-instruct,70B,70B-instruct"
+    MODEL_SIZE="70B,70B-instruct"
 fi
 
 echo "Downloading LICENSE and Acceptable Usage Policy"
